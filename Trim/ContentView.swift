@@ -29,10 +29,37 @@ struct ContentView: View {
         }
     }
     
+    
+    
     private func fetchRecipe(){
+        fetchData(from: URL(string: recipeUrl)!)
         recipeUrl = placeHolderText
-        resultText = Constants.mockResultText
     }
+    
+    func fetchData(from url: URL) {
+        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            if let error = error {
+                print("Error: \(error)")
+            } else if let data = data {
+                if let htmlString = String(data: data, encoding: .utf8) {
+                    // Now you have the HTML content in the htmlString
+                    self.parseHTML(htmlString)
+                }
+            }
+        }
+
+        task.resume()
+    }
+
+    func parseHTML(_ htmlString: String) {
+        // Implement your HTML parsing logic here
+        // You can use SwiftSoup or other HTML parsing libraries
+
+        // Example: Print the HTML content
+        print(htmlString)
+        resultText = htmlString
+    }
+
 
 
 

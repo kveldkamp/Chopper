@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		763C60512B4BD4F10080A2A6 /* parse code.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763C60502B4BD4F10080A2A6 /* parse code.swift */; };
 		763F6E272B26F3F300A16BCA /* TrimApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763F6E262B26F3F300A16BCA /* TrimApp.swift */; };
 		763F6E292B26F3F300A16BCA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763F6E282B26F3F300A16BCA /* ContentView.swift */; };
 		763F6E2D2B26F3F400A16BCA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 763F6E2C2B26F3F400A16BCA /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		763C60502B4BD4F10080A2A6 /* parse code.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "parse code.swift"; sourceTree = "<group>"; };
 		763F6E232B26F3F300A16BCA /* Trim.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trim.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		763F6E262B26F3F300A16BCA /* TrimApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrimApp.swift; sourceTree = "<group>"; };
 		763F6E282B26F3F300A16BCA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 			children = (
 				763F6E262B26F3F300A16BCA /* TrimApp.swift */,
 				763F6E282B26F3F300A16BCA /* ContentView.swift */,
+				763C60502B4BD4F10080A2A6 /* parse code.swift */,
 				763F6E2C2B26F3F400A16BCA /* Assets.xcassets */,
 				763F6E2E2B26F3F400A16BCA /* Trim.entitlements */,
 				763F6E2F2B26F3F400A16BCA /* Preview Content */,
@@ -263,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				763F6E292B26F3F300A16BCA /* ContentView.swift in Sources */,
+				763C60512B4BD4F10080A2A6 /* parse code.swift in Sources */,
 				763F6E272B26F3F300A16BCA /* TrimApp.swift in Sources */,
 				763F6E542B26F6A800A16BCA /* Constants.swift in Sources */,
 			);

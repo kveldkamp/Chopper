@@ -10,7 +10,7 @@ import Foundation
 public  struct Constants {
     // don't ship with this
     static let openAIapiKey = "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"
-    static let jsonFormatPromptString = "In this JSON format: { Ingredients: [String], Instructions: [String]"
+    static let jsonFormatPromptString = "In this JSON format: { Ingredients: [String], Instructions: [String]}"
     
     static let mockResultText = """
         {
