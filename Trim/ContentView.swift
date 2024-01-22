@@ -11,6 +11,7 @@ import SwiftData
 struct ContentView: View {
     @State private var recipeUrl: String = ""
     @State private var ingredients = ["1","2","3"]
+    @State private var directions = ["step 1","step 2","step 3"]
     let placeHolderText = "Paste recipe URL here"
     let parser = HtmlParser()
 
@@ -23,11 +24,18 @@ struct ContentView: View {
             Button("Fetch recipe") {
                 fetchRecipe()
             }
-            Text("Ingredients")
-            List(ingredients, id: \.self) { ingredient in
-                Text(ingredient)
-            }
-            .padding(.top,10)
+                Text("Ingredients")
+                List(ingredients, id: \.self) { ingredient in
+                    Text(ingredient)
+                }
+                .padding(.top,10)
+                
+                Text("Directions")
+                List(directions, id: \.self) { ingredient in
+                    Text(ingredient)
+                }
+                .padding(.top,10)
+
             
         }
         .padding(5)
@@ -46,7 +54,8 @@ struct ContentView: View {
             } else if let data = data {
                 if let htmlString = String(data: data, encoding: .utf8) {
                     // Now you have the HTML content in the htmlString
-                    self.parseHTML(htmlString: htmlString)
+                    self.getIngredients(htmlString: htmlString)
+                    self.getDirections(htmlString: htmlString)
                 }
             }
         }
@@ -54,13 +63,13 @@ struct ContentView: View {
         task.resume()
     }
 
-    func parseHTML(htmlString: String) {
+    func getIngredients(htmlString: String) {
         ingredients = parser.extractIngredients(html: htmlString)
     }
-
-
-
-
+    
+    func getDirections(htmlString: String) {
+        directions = parser.extractDirections(html: htmlString)
+    }
 
 }
 

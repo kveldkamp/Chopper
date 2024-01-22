@@ -45,4 +45,38 @@ class HtmlParser {
         return ingredients
     }
     
+    
+    func extractDirections(html: String) -> [String] {
+        var directions = [String]()
+        do {
+            let doc = try SwiftSoup.parse(html)
+            
+            // Extract ingredients
+            let h3Headers: Elements = try doc.select("h3")
+            for header in h3Headers {
+                if try header.text().lowercased().contains("directions"){
+                    //maybe found directions, go to ul next
+                    let nextElement = try header.nextElementSibling()
+                    if let nextElement = nextElement {
+                        if nextElement.tagName() == "ul"{
+                            for child in  nextElement.children(){
+                                let possibleDirection = try child.text()
+                                directions.append(possibleDirection)
+                            }
+                        }
+                    }
+                }
+            }
+            
+            
+            // let ingredients = try h3Headers.map { try $0.text() }
+            // print(ingredients)
+            
+        } catch {
+            print("Error parsing HTML: \(error)")
+        }
+        print("directions \(directions)")
+        return directions
+    }
+    
 }
