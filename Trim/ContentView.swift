@@ -10,11 +10,12 @@ import SwiftData
 
 struct ContentView: View {
     @State private var recipeUrl: String = ""
-    @State private var resultText = ""
+    @State private var ingredients = ["1","2","3"]
     let placeHolderText = "Paste recipe URL here"
+    let parser = HtmlParser()
 
     var body: some View {
-        VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/) {
+        VStack(alignment: .center) {
             TextField(
                 placeHolderText,
                 text: $recipeUrl
@@ -22,18 +23,20 @@ struct ContentView: View {
             Button("Fetch recipe") {
                 fetchRecipe()
             }
-            ScrollView{
-                Text(resultText)
-                    .padding(.top,20)
+            Text("Ingredients")
+            List(ingredients, id: \.self) { ingredient in
+                Text(ingredient)
             }
+            .padding(.top,10)
+            
         }
+        .padding(5)
     }
     
     
     
     private func fetchRecipe(){
         fetchData(from: URL(string: recipeUrl)!)
-        recipeUrl = placeHolderText
     }
     
     func fetchData(from url: URL) {
@@ -43,7 +46,7 @@ struct ContentView: View {
             } else if let data = data {
                 if let htmlString = String(data: data, encoding: .utf8) {
                     // Now you have the HTML content in the htmlString
-                    self.parseHTML(htmlString)
+                    self.parseHTML(htmlString: htmlString)
                 }
             }
         }
@@ -51,13 +54,8 @@ struct ContentView: View {
         task.resume()
     }
 
-    func parseHTML(_ htmlString: String) {
-        // Implement your HTML parsing logic here
-        // You can use SwiftSoup or other HTML parsing libraries
-
-        // Example: Print the HTML content
-        print(htmlString)
-        resultText = htmlString
+    func parseHTML(htmlString: String) {
+        ingredients = parser.extractIngredients(html: htmlString)
     }
 
 

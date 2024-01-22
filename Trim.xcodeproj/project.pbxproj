@@ -16,6 +16,8 @@
 		763F6E452B26F3F400A16BCA /* TrimUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763F6E442B26F3F400A16BCA /* TrimUITests.swift */; };
 		763F6E472B26F3F400A16BCA /* TrimUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763F6E462B26F3F400A16BCA /* TrimUITestsLaunchTests.swift */; };
 		763F6E542B26F6A800A16BCA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763F6E532B26F6A800A16BCA /* Constants.swift */; };
+		769EF52F2B5E2AA5004992B3 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 769EF52E2B5E2AA5004992B3 /* SwiftSoup */; };
+		769EF5312B5E2F21004992B3 /* HtmlParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769EF5302B5E2F21004992B3 /* HtmlParser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,7 @@
 		763F6E442B26F3F400A16BCA /* TrimUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrimUITests.swift; sourceTree = "<group>"; };
 		763F6E462B26F3F400A16BCA /* TrimUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrimUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		763F6E532B26F6A800A16BCA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		769EF5302B5E2F21004992B3 /* HtmlParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HtmlParser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				769EF52F2B5E2AA5004992B3 /* SwiftSoup in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +105,7 @@
 			children = (
 				763F6E262B26F3F300A16BCA /* TrimApp.swift */,
 				763F6E282B26F3F300A16BCA /* ContentView.swift */,
+				769EF5302B5E2F21004992B3 /* HtmlParser.swift */,
 				763C60502B4BD4F10080A2A6 /* parse code.swift */,
 				763F6E2C2B26F3F400A16BCA /* Assets.xcassets */,
 				763F6E2E2B26F3F400A16BCA /* Trim.entitlements */,
@@ -151,6 +156,9 @@
 			dependencies = (
 			);
 			name = Trim;
+			packageProductDependencies = (
+				769EF52E2B5E2AA5004992B3 /* SwiftSoup */,
+			);
 			productName = Trim;
 			productReference = 763F6E232B26F3F300A16BCA /* Trim.app */;
 			productType = "com.apple.product-type.application";
@@ -223,6 +231,9 @@
 				Base,
 			);
 			mainGroup = 763F6E1A2B26F3F300A16BCA;
+			packageReferences = (
+				769EF52D2B5E2AA5004992B3 /* XCRemoteSwiftPackageReference "SwiftSoup" */,
+			);
 			productRefGroup = 763F6E242B26F3F300A16BCA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -268,6 +279,7 @@
 				763F6E292B26F3F300A16BCA /* ContentView.swift in Sources */,
 				763C60512B4BD4F10080A2A6 /* parse code.swift in Sources */,
 				763F6E272B26F3F300A16BCA /* TrimApp.swift in Sources */,
+				769EF5312B5E2F21004992B3 /* HtmlParser.swift in Sources */,
 				763F6E542B26F6A800A16BCA /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -625,6 +637,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		769EF52D2B5E2AA5004992B3 /* XCRemoteSwiftPackageReference "SwiftSoup" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scinfu/SwiftSoup.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.7.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		769EF52E2B5E2AA5004992B3 /* SwiftSoup */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 769EF52D2B5E2AA5004992B3 /* XCRemoteSwiftPackageReference "SwiftSoup" */;
+			productName = SwiftSoup;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 763F6E1B2B26F3F300A16BCA /* Project object */;
 }
